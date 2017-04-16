@@ -48,6 +48,10 @@ class Webmention_Plugin {
 		// list of various public helper functions
 		require_once( dirname( __FILE__ ) . '/includes/functions.php' );
 
+		// initialize Comment Permalinks
+		require_once( dirname( __FILE__ ) . '/includes/class-comment-permalinks.php' );
+		add_action( 'init', array( 'Comment_Permalinks', 'init' ) );
+
 		// initialize Webmention Sender
 		require_once( dirname( __FILE__ ) . '/includes/class-webmention-sender.php' );
 		add_action( 'init', array( 'Webmention_Sender', 'init' ) );
